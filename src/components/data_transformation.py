@@ -28,7 +28,6 @@ class DataTransformation:
         This function si responsible for data trnasformation  opearation 
         where we handle null val  , ohe , standard_scaler by using pipeline 
         
-        
         '''
         try:
             numerical_columns = ["writing_score", "reading_score"]
@@ -42,7 +41,7 @@ class DataTransformation:
 
             num_pipeline= Pipeline(
                 steps=[
-                ("imputer",SimpleImputer(strategy="median")),
+                ("imputer",SimpleImputer(strategy="median")),  # here we handle null val if it present 
                 ("scaler",StandardScaler())
 
                 ]
