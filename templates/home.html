@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            background-color: #dff0d8;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Performance Prediction</h1>
+        <form action="/predictdata" method="post">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="ethnicity">Ethnicity:</label>
+            <select id="ethnicity" name="ethnicity">
+                <option value="group A">Group A</option>
+                <option value="group B">Group B</option>
+                <option value="group C">Group C</option>
+                <option value="group D">Group D</option>
+                <option value="group E">Group E</option>
+            </select>
+
+            <label for="parental_level_of_education">Parental Education:</label>
+            <select id="parental_level_of_education" name="parental_level_of_education">
+                <option value="some high school">Some High School</option>
+                <option value="high school">High School</option>
+                <option value="some college">Some College</option>
+                <option value="associate's degree">Associate's Degree</option>
+                <option value="bachelor's degree">Bachelor's Degree</option>
+                <option value="master's degree">Master's Degree</option>
+            </select>
+
+            <label for="lunch">Lunch:</label>
+            <select id="lunch" name="lunch">
+                <option value="standard">Standard</option>
+                <option value="free_reduced">Free/Reduced</option>
+            </select>
+
+            <label for="test_preparation_course">Test Preparation Course:</label>
+            <select id="test_preparation_course" name="test_preparation_course">
+                <option value="none">None</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <label for="writing_score">Writing Score:</label>
+            <input type="text" id="writing_score" name="writing_score" required>
+
+            <label for="reading_score">Reading Score:</label>
+            <input type="text" id="reading_score" name="reading_score" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if results %}
+        <div class="result">
+            <h2>Prediction Result For Math Score is :</h2>
+            <p>{{ results }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
