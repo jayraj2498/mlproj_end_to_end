@@ -1,0 +1,44 @@
+# depployement method end to end ML project in production AWS cloud using CICD pipeline 
+
+1) first we dockerrize our application 
+
+FROM python:3.8-slim-buster
+WORKDIR /app
+COPY . /app
+
+RUN apt update -y && apt install awscli -y
+
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
+CMD ["python3", "app.py"] 
+
+
+
+2) then we add it on git  
+
+create worflow folder - > creaet main.yaml file  add all coantain their   
+
+these workflow have both cicid pipeline intergrated   
+
+- we perform 3 step their 
+1) integration 
+2) build and push ecr image 
+3) continues deployement  
+
+
+
+- 1) integration  
+
+in imtehration it is nothing nut continues integration  
+
+
+-2)  build and push ecr image 
+
+after continues integration we need to build and push these ecr imaage 
+
+we have the docekr image where do you put it ? you put it into ecr repository  
+
+ECR = It is fully manage Docker coantainer to store  , and manage and deploye image 
+ecr it is used to store private docker images (those docker images it is not publically available ) 
+
+we generally use  aws ECR  and Ec2 to for deployement purpose 
+
