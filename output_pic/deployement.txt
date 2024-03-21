@@ -40,5 +40,8 @@ we have the docekr image where do you put it ? you put it into ecr repository
 ECR = It is fully manage Docker coantainer to store  , and manage and deploye image 
 ecr it is used to store private docker images (those docker images it is not publically available ) 
 
-we generally use  aws ECR  and Ec2 to for deployement purpose 
+we generally use  aws ECR  and Ec2 to for deployement purpose  
 
+
+
+3) continues deployement   
